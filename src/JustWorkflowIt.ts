@@ -144,6 +144,11 @@ import {
   CancelOrganizationInvitationCommandOutput,
 } from "./commands/CancelOrganizationInvitationCommand";
 import {
+  ChangeOrganizationSubscriptionPlanCommand,
+  ChangeOrganizationSubscriptionPlanCommandInput,
+  ChangeOrganizationSubscriptionPlanCommandOutput,
+} from "./commands/ChangeOrganizationSubscriptionPlanCommand";
+import {
   CreateApiAuthTokenCommand,
   CreateApiAuthTokenCommandInput,
   CreateApiAuthTokenCommandOutput,
@@ -328,6 +333,11 @@ import {
   GetWorkflowStateCommandInput,
   GetWorkflowStateCommandOutput,
 } from "./commands/GetWorkflowStateCommand";
+import {
+  GetWorkflowStateMetadataCommand,
+  GetWorkflowStateMetadataCommandInput,
+  GetWorkflowStateMetadataCommandOutput,
+} from "./commands/GetWorkflowStateMetadataCommand";
 import {
   GetWorkflowVersionCommand,
   GetWorkflowVersionCommandInput,
@@ -605,6 +615,7 @@ const commands = {
   AllowlistMarketplaceListingCommand,
   CancelJobCommand,
   CancelOrganizationInvitationCommand,
+  ChangeOrganizationSubscriptionPlanCommand,
   CreateApiAuthTokenCommand,
   CreateBillingSetupIntentCommand,
   CreateConnectOnboardingLinkCommand,
@@ -642,6 +653,7 @@ const commands = {
   GetWorkflowCommand,
   GetWorkflowMetricTimeSeriesCommand,
   GetWorkflowStateCommand,
+  GetWorkflowStateMetadataCommand,
   GetWorkflowVersionCommand,
   GrantMarketplaceAccessCommand,
   HandleStripeConnectWebhookCommand,
@@ -1173,6 +1185,23 @@ export interface JustWorkflowIt {
     args: CancelOrganizationInvitationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelOrganizationInvitationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ChangeOrganizationSubscriptionPlanCommand}
+   */
+  changeOrganizationSubscriptionPlan(
+    args: ChangeOrganizationSubscriptionPlanCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<ChangeOrganizationSubscriptionPlanCommandOutput>;
+  changeOrganizationSubscriptionPlan(
+    args: ChangeOrganizationSubscriptionPlanCommandInput,
+    cb: (err: any, data?: ChangeOrganizationSubscriptionPlanCommandOutput) => void
+  ): void;
+  changeOrganizationSubscriptionPlan(
+    args: ChangeOrganizationSubscriptionPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ChangeOrganizationSubscriptionPlanCommandOutput) => void
   ): void;
 
   /**
@@ -1802,6 +1831,23 @@ export interface JustWorkflowIt {
     args: GetWorkflowStateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetWorkflowStateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetWorkflowStateMetadataCommand}
+   */
+  getWorkflowStateMetadata(
+    args: GetWorkflowStateMetadataCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<GetWorkflowStateMetadataCommandOutput>;
+  getWorkflowStateMetadata(
+    args: GetWorkflowStateMetadataCommandInput,
+    cb: (err: any, data?: GetWorkflowStateMetadataCommandOutput) => void
+  ): void;
+  getWorkflowStateMetadata(
+    args: GetWorkflowStateMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkflowStateMetadataCommandOutput) => void
   ): void;
 
   /**

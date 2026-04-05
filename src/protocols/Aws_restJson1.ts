@@ -112,6 +112,10 @@ import {
   CancelOrganizationInvitationCommandOutput,
 } from "../commands/CancelOrganizationInvitationCommand";
 import {
+  ChangeOrganizationSubscriptionPlanCommandInput,
+  ChangeOrganizationSubscriptionPlanCommandOutput,
+} from "../commands/ChangeOrganizationSubscriptionPlanCommand";
+import {
   CreateApiAuthTokenCommandInput,
   CreateApiAuthTokenCommandOutput,
 } from "../commands/CreateApiAuthTokenCommand";
@@ -259,6 +263,10 @@ import {
   GetWorkflowStateCommandInput,
   GetWorkflowStateCommandOutput,
 } from "../commands/GetWorkflowStateCommand";
+import {
+  GetWorkflowStateMetadataCommandInput,
+  GetWorkflowStateMetadataCommandOutput,
+} from "../commands/GetWorkflowStateMetadataCommand";
 import {
   GetWorkflowVersionCommandInput,
   GetWorkflowVersionCommandOutput,
@@ -1134,6 +1142,29 @@ export const se_CancelOrganizationInvitationCommand = async(
 }
 
 /**
+ * serializeAws_restJson1ChangeOrganizationSubscriptionPlanCommand
+ */
+export const se_ChangeOrganizationSubscriptionPlanCommand = async(
+  input: ChangeOrganizationSubscriptionPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    'content-type': 'application/json',
+  };
+  b.bp("/organizations/{organizationId}/subscription-plan");
+  b.p('organizationId', () => input.organizationId!, '{organizationId}', false)
+  let body: any;
+  body = JSON.stringify(take(input, {
+    'subscriptionPlanId': [],
+  }));
+  b.m("PATCH")
+  .h(headers)
+  .b(body);
+  return b.build();
+}
+
+/**
  * serializeAws_restJson1CreateApiAuthTokenCommand
  */
 export const se_CreateApiAuthTokenCommand = async(
@@ -1928,6 +1959,26 @@ export const se_GetWorkflowStateCommand = async(
   const headers: any = {
   };
   b.bp("/organizations/{organizationId}/jobs/{jobId}/state");
+  b.p('organizationId', () => input.organizationId!, '{organizationId}', false)
+  b.p('jobId', () => input.jobId!, '{jobId}', false)
+  let body: any;
+  b.m("GET")
+  .h(headers)
+  .b(body);
+  return b.build();
+}
+
+/**
+ * serializeAws_restJson1GetWorkflowStateMetadataCommand
+ */
+export const se_GetWorkflowStateMetadataCommand = async(
+  input: GetWorkflowStateMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+  };
+  b.bp("/organizations/{organizationId}/jobs/{jobId}/state/metadata");
   b.p('organizationId', () => input.organizationId!, '{organizationId}', false)
   b.p('jobId', () => input.jobId!, '{jobId}', false)
   let body: any;
@@ -3275,13 +3326,18 @@ export const de_AdminGetOrganizationCommand = async(
   const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
   const doc = take(data, {
     'createdAt': _ => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    'currentPeriodEnd': _ => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    'currentPeriodStart': _ => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     'displayName': __expectString,
+    'hasValidPaymentCard': __expectBoolean,
     'jobCount': __expectInt32,
     'key': __expectString,
     'memberCount': __expectInt32,
     'name': __expectString,
     'organizationId': __expectString,
     'roleCount': __expectInt32,
+    'stripeCustomerId': __expectString,
+    'stripeSubscriptionId': __expectString,
     'subscriptionPlanId': __expectString,
     'subscriptionPlanName': __expectString,
     'updatedAt': _ => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -3649,6 +3705,29 @@ export const de_CancelOrganizationInvitationCommand = async(
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+}
+
+/**
+ * deserializeAws_restJson1ChangeOrganizationSubscriptionPlanCommand
+ */
+export const de_ChangeOrganizationSubscriptionPlanCommand = async(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ChangeOrganizationSubscriptionPlanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
+  const doc = take(data, {
+    'organizationId': __expectString,
+    'subscriptionPlanId': __expectString,
+    'subscriptionPlanName': __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 }
 
@@ -4488,6 +4567,27 @@ export const de_GetWorkflowStateCommand = async(
   const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
   const doc = take(data, {
     'state': _ => de_WorkflowState(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+}
+
+/**
+ * deserializeAws_restJson1GetWorkflowStateMetadataCommand
+ */
+export const de_GetWorkflowStateMetadataCommand = async(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowStateMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
+  const doc = take(data, {
+    'contentLengthBytes': __expectLong,
   });
   Object.assign(contents, doc);
   return contents;

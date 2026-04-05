@@ -118,6 +118,10 @@ import {
   CancelOrganizationInvitationCommandOutput,
 } from "./commands/CancelOrganizationInvitationCommand";
 import {
+  ChangeOrganizationSubscriptionPlanCommandInput,
+  ChangeOrganizationSubscriptionPlanCommandOutput,
+} from "./commands/ChangeOrganizationSubscriptionPlanCommand";
+import {
   CreateApiAuthTokenCommandInput,
   CreateApiAuthTokenCommandOutput,
 } from "./commands/CreateApiAuthTokenCommand";
@@ -265,6 +269,10 @@ import {
   GetWorkflowStateCommandInput,
   GetWorkflowStateCommandOutput,
 } from "./commands/GetWorkflowStateCommand";
+import {
+  GetWorkflowStateMetadataCommandInput,
+  GetWorkflowStateMetadataCommandOutput,
+} from "./commands/GetWorkflowStateMetadataCommand";
 import {
   GetWorkflowVersionCommandInput,
   GetWorkflowVersionCommandOutput,
@@ -559,6 +567,7 @@ export type ServiceInputTypes =
   | AllowlistMarketplaceListingCommandInput
   | CancelJobCommandInput
   | CancelOrganizationInvitationCommandInput
+  | ChangeOrganizationSubscriptionPlanCommandInput
   | CreateApiAuthTokenCommandInput
   | CreateBillingSetupIntentCommandInput
   | CreateConnectOnboardingLinkCommandInput
@@ -596,6 +605,7 @@ export type ServiceInputTypes =
   | GetWorkflowCommandInput
   | GetWorkflowMetricTimeSeriesCommandInput
   | GetWorkflowStateCommandInput
+  | GetWorkflowStateMetadataCommandInput
   | GetWorkflowVersionCommandInput
   | GrantMarketplaceAccessCommandInput
   | HandleStripeConnectWebhookCommandInput
@@ -678,6 +688,7 @@ export type ServiceOutputTypes =
   | AllowlistMarketplaceListingCommandOutput
   | CancelJobCommandOutput
   | CancelOrganizationInvitationCommandOutput
+  | ChangeOrganizationSubscriptionPlanCommandOutput
   | CreateApiAuthTokenCommandOutput
   | CreateBillingSetupIntentCommandOutput
   | CreateConnectOnboardingLinkCommandOutput
@@ -715,6 +726,7 @@ export type ServiceOutputTypes =
   | GetWorkflowCommandOutput
   | GetWorkflowMetricTimeSeriesCommandOutput
   | GetWorkflowStateCommandOutput
+  | GetWorkflowStateMetadataCommandOutput
   | GetWorkflowVersionCommandOutput
   | GrantMarketplaceAccessCommandOutput
   | HandleStripeConnectWebhookCommandOutput

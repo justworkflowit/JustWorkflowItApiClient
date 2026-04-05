@@ -550,6 +550,35 @@ export interface AdminGetOrganizationOutput {
   roleCount: number;
   createdAt: Date;
   updatedAt: Date;
+  /**
+   * Stripe customer ID for billing.
+   * @public
+   */
+  stripeCustomerId?: string | undefined;
+
+  /**
+   * Stripe subscription ID for recurring billing.
+   * @public
+   */
+  stripeSubscriptionId?: string | undefined;
+
+  /**
+   * Whether the organization has a valid payment card on file.
+   * @public
+   */
+  hasValidPaymentCard?: boolean | undefined;
+
+  /**
+   * Start of the current Stripe billing period. Fetched live from Stripe.
+   * @public
+   */
+  currentPeriodStart?: Date | undefined;
+
+  /**
+   * End of the current Stripe billing period (also the next billing date). Fetched live from Stripe.
+   * @public
+   */
+  currentPeriodEnd?: Date | undefined;
 }
 
 /**
@@ -1449,6 +1478,37 @@ export interface CancelOrganizationInvitationInput {
    * @public
    */
   invitationId: string;
+}
+
+/**
+ * @public
+ */
+export interface ChangeOrganizationSubscriptionPlanInput {
+  /**
+   * Universally unique identifier in standard UUID format with hyphens.
+   * @public
+   */
+  organizationId: string;
+
+  /**
+   * The ID of the target subscription plan.
+   * @public
+   */
+  subscriptionPlanId: string;
+}
+
+/**
+ * @public
+ */
+export interface ChangeOrganizationSubscriptionPlanOutput {
+  /**
+   * Universally unique identifier in standard UUID format with hyphens.
+   * @public
+   */
+  organizationId: string;
+
+  subscriptionPlanId: string;
+  subscriptionPlanName: string;
 }
 
 /**
@@ -3319,6 +3379,34 @@ export interface WorkflowState {
  */
 export interface GetWorkflowStateOutput {
   state: WorkflowState;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowStateMetadataInput {
+  /**
+   * Universally unique identifier in standard UUID format with hyphens.
+   * @public
+   */
+  organizationId: string;
+
+  /**
+   * Universally unique identifier in standard UUID format with hyphens.
+   * @public
+   */
+  jobId: string;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowStateMetadataOutput {
+  /**
+   * Size of the workflow state file in bytes.
+   * @public
+   */
+  contentLengthBytes: number;
 }
 
 /**

@@ -395,6 +395,13 @@ CancelOrganizationInvitation
 </details>
 <details>
 <summary>
+ChangeOrganizationSubscriptionPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/justworkflowit/command/ChangeOrganizationSubscriptionPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/ChangeOrganizationSubscriptionPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/ChangeOrganizationSubscriptionPlanCommandOutput/)
+</details>
+<details>
+<summary>
 CreateApiAuthToken
 </summary>
 
@@ -651,6 +658,13 @@ GetWorkflowState
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/justworkflowit/command/GetWorkflowStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/GetWorkflowStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/GetWorkflowStateCommandOutput/)
+</details>
+<details>
+<summary>
+GetWorkflowStateMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/justworkflowit/command/GetWorkflowStateMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/GetWorkflowStateMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/GetWorkflowStateMetadataCommandOutput/)
 </details>
 <details>
 <summary>

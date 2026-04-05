@@ -60,6 +60,11 @@ export interface AdminGetOrganizationCommandOutput extends AdminGetOrganizationO
  * //   roleCount: Number("int"), // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   stripeCustomerId: "STRING_VALUE",
+ * //   stripeSubscriptionId: "STRING_VALUE",
+ * //   hasValidPaymentCard: true || false,
+ * //   currentPeriodStart: new Date("TIMESTAMP"),
+ * //   currentPeriodEnd: new Date("TIMESTAMP"),
  * // };
  *
  * ```
