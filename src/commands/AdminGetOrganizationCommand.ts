@@ -65,6 +65,12 @@ export interface AdminGetOrganizationCommandOutput extends AdminGetOrganizationO
  * //   hasValidPaymentCard: true || false,
  * //   currentPeriodStart: new Date("TIMESTAMP"),
  * //   currentPeriodEnd: new Date("TIMESTAMP"),
+ * //   stripeConnectAccountId: "STRING_VALUE",
+ * //   stripeConnectOnboarded: true || false,
+ * //   stripeConnectPayoutsEnabled: true || false,
+ * //   payoutAccountConfigured: true || false,
+ * //   estimatedUpcomingPayouts: Number("double"),
+ * //   lifetimePayouts: Number("double"),
  * // };
  *
  * ```

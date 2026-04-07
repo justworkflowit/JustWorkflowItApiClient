@@ -579,6 +579,42 @@ export interface AdminGetOrganizationOutput {
    * @public
    */
   currentPeriodEnd?: Date | undefined;
+
+  /**
+   * Stripe Connect account ID if the organization has started publisher onboarding.
+   * @public
+   */
+  stripeConnectAccountId?: string | undefined;
+
+  /**
+   * Whether this organization has completed Stripe Connect onboarding (KYC/KYB).
+   * @public
+   */
+  stripeConnectOnboarded?: boolean | undefined;
+
+  /**
+   * Whether this organization is enabled to receive marketplace publisher payouts.
+   * @public
+   */
+  stripeConnectPayoutsEnabled?: boolean | undefined;
+
+  /**
+   * True when Stripe Connect account exists, onboarding is complete, and payouts are enabled.
+   * @public
+   */
+  payoutAccountConfigured?: boolean | undefined;
+
+  /**
+   * Estimated upcoming publisher payouts (USD): sum of marketplace usage syncs not yet billed via an invoice.
+   * @public
+   */
+  estimatedUpcomingPayouts?: number | undefined;
+
+  /**
+   * Lifetime publisher payouts paid out (USD): sum of line items on PAID invoices with payouts processed.
+   * @public
+   */
+  lifetimePayouts?: number | undefined;
 }
 
 /**
