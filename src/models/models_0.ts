@@ -1549,6 +1549,44 @@ export interface ChangeOrganizationSubscriptionPlanOutput {
 
 /**
  * @public
+ */
+export interface ChatMessage {
+  role: string;
+  content: string;
+}
+
+/**
+ * @public
+ */
+export interface ChatWorkflowSpecInput {
+  /**
+   * Universally unique identifier in standard UUID format with hyphens.
+   * @public
+   */
+  organizationId: string;
+
+  /**
+   * Universally unique identifier in standard UUID format with hyphens.
+   * @public
+   */
+  workflowId: string;
+
+  message: string;
+  conversationHistory?: (ChatMessage)[] | undefined;
+  currentDefinition?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ChatWorkflowSpecOutput {
+  definition: string;
+  explanation: string;
+  stubs: (string)[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const JobStatus = {
@@ -5287,4 +5325,32 @@ export interface ListOrganizationInvitationsForUserInput {
  */
 export interface ListOrganizationInvitationsForUserOutput {
   invitations: (OrganizationInvitationSummary)[];
+}
+
+/**
+ * @public
+ */
+export interface ValidateWorkflowVersionInput {
+  /**
+   * Universally unique identifier in standard UUID format with hyphens.
+   * @public
+   */
+  organizationId: string;
+
+  /**
+   * Universally unique identifier in standard UUID format with hyphens.
+   * @public
+   */
+  workflowId: string;
+
+  definition: string;
+}
+
+/**
+ * @public
+ */
+export interface ValidateWorkflowVersionOutput {
+  valid: boolean;
+  errors: (string)[];
+  definition?: string | undefined;
 }

@@ -402,6 +402,13 @@ ChangeOrganizationSubscriptionPlan
 </details>
 <details>
 <summary>
+ChatWorkflowSpec
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/justworkflowit/command/ChatWorkflowSpecCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/ChatWorkflowSpecCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/ChatWorkflowSpecCommandOutput/)
+</details>
+<details>
+<summary>
 CreateApiAuthToken
 </summary>
 
@@ -1008,4 +1015,11 @@ UpsertMarketplaceListingBillingOverride
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/justworkflowit/command/UpsertMarketplaceListingBillingOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/UpsertMarketplaceListingBillingOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/UpsertMarketplaceListingBillingOverrideCommandOutput/)
+</details>
+<details>
+<summary>
+ValidateWorkflowVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/justworkflowit/command/ValidateWorkflowVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/ValidateWorkflowVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/ValidateWorkflowVersionCommandOutput/)
 </details>

@@ -149,6 +149,11 @@ import {
   ChangeOrganizationSubscriptionPlanCommandOutput,
 } from "./commands/ChangeOrganizationSubscriptionPlanCommand";
 import {
+  ChatWorkflowSpecCommand,
+  ChatWorkflowSpecCommandInput,
+  ChatWorkflowSpecCommandOutput,
+} from "./commands/ChatWorkflowSpecCommand";
+import {
   CreateApiAuthTokenCommand,
   CreateApiAuthTokenCommandInput,
   CreateApiAuthTokenCommandOutput,
@@ -583,6 +588,11 @@ import {
   UpsertMarketplaceListingBillingOverrideCommandInput,
   UpsertMarketplaceListingBillingOverrideCommandOutput,
 } from "./commands/UpsertMarketplaceListingBillingOverrideCommand";
+import {
+  ValidateWorkflowVersionCommand,
+  ValidateWorkflowVersionCommandInput,
+  ValidateWorkflowVersionCommandOutput,
+} from "./commands/ValidateWorkflowVersionCommand";
 import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
@@ -616,6 +626,7 @@ const commands = {
   CancelJobCommand,
   CancelOrganizationInvitationCommand,
   ChangeOrganizationSubscriptionPlanCommand,
+  ChatWorkflowSpecCommand,
   CreateApiAuthTokenCommand,
   CreateBillingSetupIntentCommand,
   CreateConnectOnboardingLinkCommand,
@@ -703,6 +714,7 @@ const commands = {
   UpdateResourcePoolCommand,
   UpdateRoleCommand,
   UpsertMarketplaceListingBillingOverrideCommand,
+  ValidateWorkflowVersionCommand,
 }
 
 export interface JustWorkflowIt {
@@ -1202,6 +1214,23 @@ export interface JustWorkflowIt {
     args: ChangeOrganizationSubscriptionPlanCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ChangeOrganizationSubscriptionPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ChatWorkflowSpecCommand}
+   */
+  chatWorkflowSpec(
+    args: ChatWorkflowSpecCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<ChatWorkflowSpecCommandOutput>;
+  chatWorkflowSpec(
+    args: ChatWorkflowSpecCommandInput,
+    cb: (err: any, data?: ChatWorkflowSpecCommandOutput) => void
+  ): void;
+  chatWorkflowSpec(
+    args: ChatWorkflowSpecCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ChatWorkflowSpecCommandOutput) => void
   ): void;
 
   /**
@@ -2688,6 +2717,23 @@ export interface JustWorkflowIt {
     args: UpsertMarketplaceListingBillingOverrideCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpsertMarketplaceListingBillingOverrideCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ValidateWorkflowVersionCommand}
+   */
+  validateWorkflowVersion(
+    args: ValidateWorkflowVersionCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<ValidateWorkflowVersionCommandOutput>;
+  validateWorkflowVersion(
+    args: ValidateWorkflowVersionCommandInput,
+    cb: (err: any, data?: ValidateWorkflowVersionCommandOutput) => void
+  ): void;
+  validateWorkflowVersion(
+    args: ValidateWorkflowVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateWorkflowVersionCommandOutput) => void
   ): void;
 
 }

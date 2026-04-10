@@ -116,6 +116,10 @@ import {
   ChangeOrganizationSubscriptionPlanCommandOutput,
 } from "../commands/ChangeOrganizationSubscriptionPlanCommand";
 import {
+  ChatWorkflowSpecCommandInput,
+  ChatWorkflowSpecCommandOutput,
+} from "../commands/ChatWorkflowSpecCommand";
+import {
   CreateApiAuthTokenCommandInput,
   CreateApiAuthTokenCommandOutput,
 } from "../commands/CreateApiAuthTokenCommand";
@@ -463,6 +467,10 @@ import {
   UpsertMarketplaceListingBillingOverrideCommandInput,
   UpsertMarketplaceListingBillingOverrideCommandOutput,
 } from "../commands/UpsertMarketplaceListingBillingOverrideCommand";
+import {
+  ValidateWorkflowVersionCommandInput,
+  ValidateWorkflowVersionCommandOutput,
+} from "../commands/ValidateWorkflowVersionCommand";
 import { JustWorkflowItServiceException as __BaseException } from "../models/JustWorkflowItServiceException";
 import {
   AdminOrganizationMember,
@@ -473,6 +481,7 @@ import {
   ApiAuthTokenSummary,
   AuthenticationError,
   AuthorizationError,
+  ChatMessage,
   ChildJobSummary,
   ConflictError,
   ConsumerUsageBreakdown,
@@ -1159,6 +1168,32 @@ export const se_ChangeOrganizationSubscriptionPlanCommand = async(
     'subscriptionPlanId': [],
   }));
   b.m("PATCH")
+  .h(headers)
+  .b(body);
+  return b.build();
+}
+
+/**
+ * serializeAws_restJson1ChatWorkflowSpecCommand
+ */
+export const se_ChatWorkflowSpecCommand = async(
+  input: ChatWorkflowSpecCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    'content-type': 'application/json',
+  };
+  b.bp("/organizations/{organizationId}/workflows/{workflowId}/chat-spec");
+  b.p('organizationId', () => input.organizationId!, '{organizationId}', false)
+  b.p('workflowId', () => input.workflowId!, '{workflowId}', false)
+  let body: any;
+  body = JSON.stringify(take(input, {
+    'conversationHistory': _ => _json(_),
+    'currentDefinition': [],
+    'message': [],
+  }));
+  b.m("POST")
   .h(headers)
   .b(body);
   return b.build();
@@ -3072,6 +3107,30 @@ export const se_UpsertMarketplaceListingBillingOverrideCommand = async(
 }
 
 /**
+ * serializeAws_restJson1ValidateWorkflowVersionCommand
+ */
+export const se_ValidateWorkflowVersionCommand = async(
+  input: ValidateWorkflowVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    'content-type': 'application/json',
+  };
+  b.bp("/organizations/{organizationId}/workflows/{workflowId}/versions/validate");
+  b.p('organizationId', () => input.organizationId!, '{organizationId}', false)
+  b.p('workflowId', () => input.workflowId!, '{workflowId}', false)
+  let body: any;
+  body = JSON.stringify(take(input, {
+    'definition': [],
+  }));
+  b.m("POST")
+  .h(headers)
+  .b(body);
+  return b.build();
+}
+
+/**
  * deserializeAws_restJson1AcceptOrganizationInvitationCommand
  */
 export const de_AcceptOrganizationInvitationCommand = async(
@@ -3732,6 +3791,29 @@ export const de_ChangeOrganizationSubscriptionPlanCommand = async(
     'organizationId': __expectString,
     'subscriptionPlanId': __expectString,
     'subscriptionPlanName': __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+}
+
+/**
+ * deserializeAws_restJson1ChatWorkflowSpecCommand
+ */
+export const de_ChatWorkflowSpecCommand = async(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ChatWorkflowSpecCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
+  const doc = take(data, {
+    'definition': __expectString,
+    'explanation': __expectString,
+    'stubs': _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5643,6 +5725,29 @@ export const de_UpsertMarketplaceListingBillingOverrideCommand = async(
 }
 
 /**
+ * deserializeAws_restJson1ValidateWorkflowVersionCommand
+ */
+export const de_ValidateWorkflowVersionCommand = async(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ValidateWorkflowVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
+  const doc = take(data, {
+    'definition': __expectString,
+    'errors': _json,
+    'valid': __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+}
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async(
@@ -5824,6 +5929,10 @@ const de_CommandError = async(
   };
 
   // se_AdminFeatureValueMap omitted.
+
+  // se_ChatMessage omitted.
+
+  // se_ChatMessageList omitted.
 
   // se_PermissionNameList omitted.
 
@@ -6598,6 +6707,8 @@ const de_CommandError = async(
 
   // de_stringMap omitted.
 
+  // de_StubStepNameList omitted.
+
   // de_SubscriptionFeature omitted.
 
   // de_SubscriptionFeatureList omitted.
@@ -6633,6 +6744,8 @@ const de_CommandError = async(
     });
     return retVal;
   }
+
+  // de_ValidationErrorList omitted.
 
   /**
    * deserializeAws_restJson1WorkflowState

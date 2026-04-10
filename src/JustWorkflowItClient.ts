@@ -122,6 +122,10 @@ import {
   ChangeOrganizationSubscriptionPlanCommandOutput,
 } from "./commands/ChangeOrganizationSubscriptionPlanCommand";
 import {
+  ChatWorkflowSpecCommandInput,
+  ChatWorkflowSpecCommandOutput,
+} from "./commands/ChatWorkflowSpecCommand";
+import {
   CreateApiAuthTokenCommandInput,
   CreateApiAuthTokenCommandOutput,
 } from "./commands/CreateApiAuthTokenCommand";
@@ -469,6 +473,10 @@ import {
   UpsertMarketplaceListingBillingOverrideCommandInput,
   UpsertMarketplaceListingBillingOverrideCommandOutput,
 } from "./commands/UpsertMarketplaceListingBillingOverrideCommand";
+import {
+  ValidateWorkflowVersionCommandInput,
+  ValidateWorkflowVersionCommandOutput,
+} from "./commands/ValidateWorkflowVersionCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import {
   RuntimeExtension,
@@ -568,6 +576,7 @@ export type ServiceInputTypes =
   | CancelJobCommandInput
   | CancelOrganizationInvitationCommandInput
   | ChangeOrganizationSubscriptionPlanCommandInput
+  | ChatWorkflowSpecCommandInput
   | CreateApiAuthTokenCommandInput
   | CreateBillingSetupIntentCommandInput
   | CreateConnectOnboardingLinkCommandInput
@@ -654,7 +663,8 @@ export type ServiceInputTypes =
   | UpdateOrganizationSecretCommandInput
   | UpdateResourcePoolCommandInput
   | UpdateRoleCommandInput
-  | UpsertMarketplaceListingBillingOverrideCommandInput;
+  | UpsertMarketplaceListingBillingOverrideCommandInput
+  | ValidateWorkflowVersionCommandInput;
 
 /**
  * @public
@@ -689,6 +699,7 @@ export type ServiceOutputTypes =
   | CancelJobCommandOutput
   | CancelOrganizationInvitationCommandOutput
   | ChangeOrganizationSubscriptionPlanCommandOutput
+  | ChatWorkflowSpecCommandOutput
   | CreateApiAuthTokenCommandOutput
   | CreateBillingSetupIntentCommandOutput
   | CreateConnectOnboardingLinkCommandOutput
@@ -775,7 +786,8 @@ export type ServiceOutputTypes =
   | UpdateOrganizationSecretCommandOutput
   | UpdateResourcePoolCommandOutput
   | UpdateRoleCommandOutput
-  | UpsertMarketplaceListingBillingOverrideCommandOutput;
+  | UpsertMarketplaceListingBillingOverrideCommandOutput
+  | ValidateWorkflowVersionCommandOutput;
 
 /**
  * @public
