@@ -528,6 +528,13 @@ GetApiAuthToken
 </details>
 <details>
 <summary>
+GetChatSpecResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/justworkflowit/command/GetChatSpecResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/GetChatSpecResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-justworkflowit/Interface/GetChatSpecResultCommandOutput/)
+</details>
+<details>
+<summary>
 GetConnectAccountStatus
 </summary>
 

@@ -46,6 +46,7 @@ export * from "./DeleteOrganizationSecretCommand";
 export * from "./DeleteResourcePoolCommand";
 export * from "./DeleteRoleCommand";
 export * from "./GetApiAuthTokenCommand";
+export * from "./GetChatSpecResultCommand";
 export * from "./GetConnectAccountStatusCommand";
 export * from "./GetConsumerListingUsageTimeSeriesCommand";
 export * from "./GetJobCommand";

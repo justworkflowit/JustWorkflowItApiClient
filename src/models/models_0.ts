@@ -1580,9 +1580,7 @@ export interface ChatWorkflowSpecInput {
  * @public
  */
 export interface ChatWorkflowSpecOutput {
-  definition: string;
-  explanation: string;
-  stubs: (string)[];
+  requestId: string;
 }
 
 /**
@@ -2223,6 +2221,36 @@ export interface ExecutionHistoryItem {
    * @public
    */
   eventId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetChatSpecResultInput {
+  /**
+   * Universally unique identifier in standard UUID format with hyphens.
+   * @public
+   */
+  organizationId: string;
+
+  /**
+   * Universally unique identifier in standard UUID format with hyphens.
+   * @public
+   */
+  workflowId: string;
+
+  requestId: string;
+}
+
+/**
+ * @public
+ */
+export interface GetChatSpecResultOutput {
+  status: string;
+  definition?: string | undefined;
+  explanation?: string | undefined;
+  stubs?: (string)[] | undefined;
+  error?: string | undefined;
 }
 
 /**

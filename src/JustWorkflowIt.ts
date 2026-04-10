@@ -239,6 +239,11 @@ import {
   GetApiAuthTokenCommandOutput,
 } from "./commands/GetApiAuthTokenCommand";
 import {
+  GetChatSpecResultCommand,
+  GetChatSpecResultCommandInput,
+  GetChatSpecResultCommandOutput,
+} from "./commands/GetChatSpecResultCommand";
+import {
   GetConnectAccountStatusCommand,
   GetConnectAccountStatusCommandInput,
   GetConnectAccountStatusCommandOutput,
@@ -644,6 +649,7 @@ const commands = {
   DeleteResourcePoolCommand,
   DeleteRoleCommand,
   GetApiAuthTokenCommand,
+  GetChatSpecResultCommand,
   GetConnectAccountStatusCommand,
   GetConsumerListingUsageTimeSeriesCommand,
   GetJobCommand,
@@ -1520,6 +1526,23 @@ export interface JustWorkflowIt {
     args: GetApiAuthTokenCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApiAuthTokenCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetChatSpecResultCommand}
+   */
+  getChatSpecResult(
+    args: GetChatSpecResultCommandInput,
+    options?: __HttpHandlerOptions,
+  ): Promise<GetChatSpecResultCommandOutput>;
+  getChatSpecResult(
+    args: GetChatSpecResultCommandInput,
+    cb: (err: any, data?: GetChatSpecResultCommandOutput) => void
+  ): void;
+  getChatSpecResult(
+    args: GetChatSpecResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChatSpecResultCommandOutput) => void
   ): void;
 
   /**

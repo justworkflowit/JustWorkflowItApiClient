@@ -188,6 +188,10 @@ import {
   GetApiAuthTokenCommandOutput,
 } from "../commands/GetApiAuthTokenCommand";
 import {
+  GetChatSpecResultCommandInput,
+  GetChatSpecResultCommandOutput,
+} from "../commands/GetChatSpecResultCommand";
+import {
   GetConnectAccountStatusCommandInput,
   GetConnectAccountStatusCommandOutput,
 } from "../commands/GetConnectAccountStatusCommand";
@@ -1577,6 +1581,27 @@ export const se_GetApiAuthTokenCommand = async(
   b.bp("/organizations/{organizationId}/api-auth-tokens/{apiAuthTokenId}");
   b.p('organizationId', () => input.organizationId!, '{organizationId}', false)
   b.p('apiAuthTokenId', () => input.apiAuthTokenId!, '{apiAuthTokenId}', false)
+  let body: any;
+  b.m("GET")
+  .h(headers)
+  .b(body);
+  return b.build();
+}
+
+/**
+ * serializeAws_restJson1GetChatSpecResultCommand
+ */
+export const se_GetChatSpecResultCommand = async(
+  input: GetChatSpecResultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+  };
+  b.bp("/organizations/{organizationId}/workflows/{workflowId}/chat-spec/{requestId}");
+  b.p('organizationId', () => input.organizationId!, '{organizationId}', false)
+  b.p('workflowId', () => input.workflowId!, '{workflowId}', false)
+  b.p('requestId', () => input.requestId!, '{requestId}', false)
   let body: any;
   b.m("GET")
   .h(headers)
@@ -3811,9 +3836,7 @@ export const de_ChatWorkflowSpecCommand = async(
   });
   const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
   const doc = take(data, {
-    'definition': __expectString,
-    'explanation': __expectString,
-    'stubs': _json,
+    'requestId': __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4165,6 +4188,31 @@ export const de_GetApiAuthTokenCommand = async(
     'expiresAt': _ => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     'name': __expectString,
     'permissions': _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+}
+
+/**
+ * deserializeAws_restJson1GetChatSpecResultCommand
+ */
+export const de_GetChatSpecResultCommand = async(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChatSpecResultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull((__expectObject(await parseBody(output.body, context))), "body");
+  const doc = take(data, {
+    'definition': __expectString,
+    'error': __expectString,
+    'explanation': __expectString,
+    'status': __expectString,
+    'stubs': _json,
   });
   Object.assign(contents, doc);
   return contents;

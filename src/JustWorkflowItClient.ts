@@ -194,6 +194,10 @@ import {
   GetApiAuthTokenCommandOutput,
 } from "./commands/GetApiAuthTokenCommand";
 import {
+  GetChatSpecResultCommandInput,
+  GetChatSpecResultCommandOutput,
+} from "./commands/GetChatSpecResultCommand";
+import {
   GetConnectAccountStatusCommandInput,
   GetConnectAccountStatusCommandOutput,
 } from "./commands/GetConnectAccountStatusCommand";
@@ -594,6 +598,7 @@ export type ServiceInputTypes =
   | DeleteResourcePoolCommandInput
   | DeleteRoleCommandInput
   | GetApiAuthTokenCommandInput
+  | GetChatSpecResultCommandInput
   | GetConnectAccountStatusCommandInput
   | GetConsumerListingUsageTimeSeriesCommandInput
   | GetJobCommandInput
@@ -717,6 +722,7 @@ export type ServiceOutputTypes =
   | DeleteResourcePoolCommandOutput
   | DeleteRoleCommandOutput
   | GetApiAuthTokenCommandOutput
+  | GetChatSpecResultCommandOutput
   | GetConnectAccountStatusCommandOutput
   | GetConsumerListingUsageTimeSeriesCommandOutput
   | GetJobCommandOutput

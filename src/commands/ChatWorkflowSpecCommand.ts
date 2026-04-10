@@ -69,11 +69,7 @@ export interface ChatWorkflowSpecCommandOutput extends ChatWorkflowSpecOutput, _
  * const command = new ChatWorkflowSpecCommand(input);
  * const response = await client.send(command);
  * // { // ChatWorkflowSpecOutput
- * //   definition: "STRING_VALUE", // required
- * //   explanation: "STRING_VALUE", // required
- * //   stubs: [ // StubStepNameList // required
- * //     "STRING_VALUE",
- * //   ],
+ * //   requestId: "STRING_VALUE", // required
  * // };
  *
  * ```
