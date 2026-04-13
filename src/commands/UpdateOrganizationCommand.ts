@@ -45,6 +45,7 @@ export interface UpdateOrganizationCommandOutput extends UpdateOrganizationOutpu
  * const input = { // UpdateOrganizationInput
  *   organizationId: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE", // required
+ *   marketplaceAllowlistRequired: true || false,
  * };
  * const command = new UpdateOrganizationCommand(input);
  * const response = await client.send(command);
@@ -54,6 +55,7 @@ export interface UpdateOrganizationCommandOutput extends UpdateOrganizationOutpu
  * //   key: "STRING_VALUE", // required
  * //   displayName: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   marketplaceAllowlistRequired: true || false, // required
  * // };
  *
  * ```

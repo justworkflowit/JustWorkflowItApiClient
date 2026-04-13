@@ -1876,6 +1876,11 @@ export interface CreateOrganizationOutput {
 
   displayName: string;
   createdAt: Date;
+  /**
+   * When true (default), marketplace listings must be explicitly allowlisted before use in workflows. When false, all published listings are available without allowlisting.
+   * @public
+   */
+  marketplaceAllowlistRequired: boolean;
 }
 
 /**
@@ -2891,6 +2896,11 @@ export interface GetOrganizationOutput {
 
   displayName: string;
   createdAt: Date;
+  /**
+   * When true (default), marketplace listings must be explicitly allowlisted before use in workflows. When false, all published listings are available without allowlisting.
+   * @public
+   */
+  marketplaceAllowlistRequired: boolean;
 }
 
 /**
@@ -4353,6 +4363,11 @@ export interface OrganizationSummary {
 
   displayName: string;
   createdAt: Date;
+  /**
+   * When true (default), marketplace listings must be explicitly allowlisted before use in workflows. When false, all published listings are available without allowlisting.
+   * @public
+   */
+  marketplaceAllowlistRequired: boolean;
 }
 
 /**
@@ -4689,6 +4704,11 @@ export interface UpdateOrganizationInput {
   organizationId: string;
 
   displayName: string;
+  /**
+   * When true (default), marketplace listings must be explicitly allowlisted. When false, all published listings are available. Requires organization:update permission.
+   * @public
+   */
+  marketplaceAllowlistRequired?: boolean | undefined;
 }
 
 /**
@@ -4710,6 +4730,11 @@ export interface UpdateOrganizationOutput {
 
   displayName: string;
   createdAt: Date;
+  /**
+   * When true (default), marketplace listings must be explicitly allowlisted before use in workflows. When false, all published listings are available without allowlisting.
+   * @public
+   */
+  marketplaceAllowlistRequired: boolean;
 }
 
 /**

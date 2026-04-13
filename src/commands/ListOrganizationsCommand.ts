@@ -53,6 +53,7 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsOutput,
  * //       key: "STRING_VALUE", // required
  * //       displayName: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       marketplaceAllowlistRequired: true || false, // required
  * //     },
  * //   ],
  * // };

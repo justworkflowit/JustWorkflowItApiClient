@@ -2994,6 +2994,7 @@ export const se_UpdateOrganizationCommand = async(
   let body: any;
   body = JSON.stringify(take(input, {
     'displayName': [],
+    'marketplaceAllowlistRequired': [],
   }));
   b.m("PATCH")
   .h(headers)
@@ -3970,6 +3971,7 @@ export const de_CreateOrganizationCommand = async(
     'createdAt': _ => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     'displayName': __expectString,
     'key': __expectString,
+    'marketplaceAllowlistRequired': __expectBoolean,
     'name': __expectString,
     'organizationId': __expectString,
   });
@@ -4400,6 +4402,7 @@ export const de_GetOrganizationCommand = async(
     'createdAt': _ => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     'displayName': __expectString,
     'key': __expectString,
+    'marketplaceAllowlistRequired': __expectBoolean,
     'name': __expectString,
     'organizationId': __expectString,
   });
@@ -5653,6 +5656,7 @@ export const de_UpdateOrganizationCommand = async(
     'createdAt': _ => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     'displayName': __expectString,
     'key': __expectString,
+    'marketplaceAllowlistRequired': __expectBoolean,
     'name': __expectString,
     'organizationId': __expectString,
   });
@@ -6646,6 +6650,7 @@ const de_CommandError = async(
       'createdAt': (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
       'displayName': __expectString,
       'key': __expectString,
+      'marketplaceAllowlistRequired': __expectBoolean,
       'name': __expectString,
       'organizationId': __expectString,
     }) as any;

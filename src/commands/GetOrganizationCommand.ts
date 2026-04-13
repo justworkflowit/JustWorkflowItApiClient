@@ -53,6 +53,7 @@ export interface GetOrganizationCommandOutput extends GetOrganizationOutput, __M
  * //   key: "STRING_VALUE", // required
  * //   displayName: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   marketplaceAllowlistRequired: true || false, // required
  * // };
  *
  * ```
